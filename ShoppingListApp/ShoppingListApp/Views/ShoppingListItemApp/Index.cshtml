@@ -39,6 +39,7 @@
             @Html.DisplayFor(modelItem => item.Priority)
         </td>
         <td style="border: 1px solid black; text-align: center;">
+            <button type="button">@Html.ActionLink("Edit", "Edit", new { Id = item.Id, ShoppingListId = item.ShoppingListId }) </button>
             <button type="button">@Html.ActionLink("Delete", "Delete", new { Id = item.Id, ShoppingListId = item.ShoppingListId })</button>
         </td>
     </tr>
