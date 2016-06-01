@@ -8,22 +8,24 @@
     <h2>Shopping List Items</h2>
 </div>
 
-<div style="display: inline-block; float: right; padding-top: 2.2%;">
+<div style="display: inline-block; float: right; padding-top: 3%;">
     <button type="button">@Html.ActionLink("Add New Item", "Create", new { Id = Url.RequestContext.RouteData.Values["id"] })</button>
-    <button type="button">@Html.ActionLink("Delete all items", "DeleteAllItems")</button>
+    <button type="button">@Html.ActionLink("Delete all items", "DeleteAll")</button>
 </div>
 
 <hr style="border: 1px solid #0026ff" />​
 
 <table class="table">
-    <tr style="background-color: #808080;  border: 1px solid black;">
+    <tr style="background-color: #1aa3ff;  border: 1px solid black;">
+        <th style="border: 1px solid black; text-align: center">
+            @Html.DisplayNameFor(model => model.IsChecked)
+        </th>
         <th style="border: 1px solid black; text-align: center">
             @Html.DisplayNameFor(model => model.Contents)
         </th>
         <th style="border: 1px solid black; text-align: center">
             @Html.DisplayNameFor(model => model.Priority)
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model)

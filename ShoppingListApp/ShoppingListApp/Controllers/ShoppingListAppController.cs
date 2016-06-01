@@ -73,9 +73,9 @@ namespace ShoppingList.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DeleteAllLists()
+        public ActionResult DeleteAll()
         {
-            _svc.Value.DeleteAllLists();
+            _svc.Value.DeleteItem();
 
             return RedirectToAction("Index");
         }

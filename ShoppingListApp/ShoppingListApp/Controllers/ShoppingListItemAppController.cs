@@ -36,7 +36,7 @@ namespace ShoppingList.Web.Controllers
 
                 return View(vm);
             }
-            catch (ArgumentException e)
+            catch (ArgumentException)
             {
                 Console.WriteLine("Argument Exception. Redirecting to Shopping List.");
                 return RedirectToAction("Index", "ShoppingListApp", null);
@@ -68,7 +68,7 @@ namespace ShoppingList.Web.Controllers
 
                 return View(detail);
             }
-            catch (ArgumentException e)
+            catch (ArgumentException)
             {
                 Console.WriteLine("Argument Exception. Redirecting to Shopping List.");
                 return RedirectToAction("Index","ShoppingListApp",null);
@@ -85,9 +85,9 @@ namespace ShoppingList.Web.Controllers
             return RedirectToAction("Index", new { Id = Url.RequestContext.RouteData.Values["id"] });
         }
 
-        public ActionResult DeleteAllItems()
+        public ActionResult DeleteItem()
         {
-            _svc.Value.DeleteAllItems();
+            _svc.Value.DeleteItem();
 
             return RedirectToAction("Index","ShoppingListApp");
         }

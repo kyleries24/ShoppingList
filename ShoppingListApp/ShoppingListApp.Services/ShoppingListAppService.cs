@@ -92,7 +92,7 @@ namespace ShoppingListApp.Services
             }
         }
 
-        public bool DeleteAllLists()
+        public bool DeleteItem()
         {
             using (var ctx = new ShoppingListDbContext())
             {
