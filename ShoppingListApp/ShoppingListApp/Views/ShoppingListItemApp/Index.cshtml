@@ -16,38 +16,59 @@
 <hr style="border: 1px solid #0026ff" />​
 
 <table class="table">
-    <tr style="background-color: #1aa3ff;  border: 1px solid black;">
-        <th style="border: 1px solid black; text-align: center">
-            @Html.DisplayNameFor(model => model.IsChecked)
+    <tr id="tableheader">
+        <th>
+            <input type="checkbox" id="checkBoxAll" />
         </th>
-        <th style="border: 1px solid black; text-align: center">
+        <th>
             @Html.DisplayNameFor(model => model.Contents)
         </th>
-        <th style="border: 1px solid black; text-align: center">
+        <th>
             @Html.DisplayNameFor(model => model.Priority)
         </th>
-        <th style="border: 1px solid black; text-align: center">
+        <th>
             Options
         </th>
     </tr>
 
-@foreach (var item in Model)
-{
-    <tr style="border: 1px solid black;">
-        <td style="border: 1px solid black; text-align: center;">
-            @Html.DisplayFor(modelItem => item.IsChecked)
-        </td>
-        <td style="border: 1px solid black; text-align: center;">
-            @Html.DisplayFor(modelItem => item.Contents)
-        </td>
-        <td style="border: 1px solid black; text-align: center;">
-            @Html.DisplayFor(modelItem => item.Priority)
-        </td>
-        <td style="border: 1px solid black; text-align: center;">
-            <button type="button">@Html.ActionLink("Edit", "Edit", new { Id = item.Id, ShoppingListId = item.ShoppingListId }) </button>
-            <button type="button">@Html.ActionLink("Delete", "Delete", new { Id = item.Id, ShoppingListId = item.ShoppingListId })</button>
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr id="tableitems">
+            <td>
+                <input type="checkbox" name="IdsToBeDeleted" class="chkCheckBoxId" value="@item.Id" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contents)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Priority)
+            </td>
+            <td>
+                <button type="button">@Html.ActionLink("Delete", "Delete", new { Id = item.Id, ShoppingListId = item.ShoppingListId })</button> |
+                <button type="button">@Html.ActionLink("Edit", "Edit", new { Id = item.Id, ShoppingListId = item.ShoppingListId })</button>
+
+            </td>
+        </tr>
+    }
 
 </table>
+
+
+
+@{ Html.EndForm(); }
+
+@section scripts {
+
+    <script language="javascript" type="text/javascript">
+
+        $(document).ready(function () {
+            $('#checkBoxAll').click(function () {
+                if ($(this).is(":checked"))
+                    $('.chkCheckBoxId').prop('checked', true);
+                else
+                    $('.chkCheckBoxId').prop('checked', false);
+            });
+
+        });
+    </script>
+}
