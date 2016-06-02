@@ -85,9 +85,9 @@ namespace ShoppingList.Web.Controllers
             return RedirectToAction("Index", new { Id = Url.RequestContext.RouteData.Values["id"] });
         }
 
-        public ActionResult DeleteItem()
+        public ActionResult DeleteAll()
         {
-            _svc.Value.DeleteItem();
+            _svc.Value.DeleteAll();
 
             return RedirectToAction("Index","ShoppingListApp");
         }

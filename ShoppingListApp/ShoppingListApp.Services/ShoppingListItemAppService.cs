@@ -101,6 +101,19 @@ namespace ShoppingListApp.Services
             }
         }
 
+        public bool DeleteAll()
+        {
+            using (var ctx = new ShoppingListDbContext())
+            {
+                foreach (ShoppingListItem Sli in ctx.ShoppingListItem)
+                {
+                    ctx.ShoppingListItem.Remove(Sli);
+                }
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
         public bool UpdateItem(ShoppingListItemEditModel vm)
         {
             using (var ctx = new ShoppingListDbContext())
