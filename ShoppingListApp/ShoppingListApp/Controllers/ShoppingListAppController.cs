@@ -79,5 +79,33 @@ namespace ShoppingList.Web.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult Edit(int id)
+        {
+            var detail = _svc.Value.GetListById(id);
+            var list =
+                new ShoppingListEditModel
+                {
+                    Id = detail.Id,
+                    Name = detail.Name
+                };
+
+            return View(list);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(ShoppingListEditModel vm)
+        {
+            if (!ModelState.IsValid) return View(vm);
+
+            if (!_svc.Value.UpdateList(vm))
+            {
+                ModelState.AddModelError("", "Unable to update list");
+                return View(vm);
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }

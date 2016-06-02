@@ -13,7 +13,7 @@
     <button type="button">@Html.ActionLink("Delete List", "DeleteAll")</button>
 </div>
 
-<hr style="border: 1px solid #0026ff" />​
+<hr style="border: 1px solid #1aa3ff" />​
 
 <table class="table">
     <tr style="background-color: #1aa3ff;  border: 1px solid black;">
@@ -33,6 +33,8 @@
         <td style="border: 1px solid black;  text-align: center">
             <button type="button">@Html.ActionLink("Show", "Index", "ShoppingListItemApp", new { id = item.Id }, null)</button> |
             <button type="button">@Html.ActionLink("Delete", "Delete", new { id = item.Id })</button>
+            <button type="button">@Html.ActionLink("Edit", "Edit", new { id = item.Id })</button>
+
         </td>
     </tr>
 }

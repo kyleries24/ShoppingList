@@ -2,6 +2,7 @@
 using System.Linq;
 using ShoppingListApp.Data;
 using ShoppingListApp.Models;
+using System;
 
 namespace ShoppingListApp.Services
 {
@@ -95,6 +96,26 @@ namespace ShoppingListApp.Services
                 {
                     ctx.ShoppingListItem.Remove(Sli);
                 }
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool UpdateItem(ShoppingListItemEditModel vm)
+        {
+            using (var ctx = new ShoppingListDbContext())
+            {
+                var entity =
+                    ctx
+                        .ShoppingListItem
+                        .Single(e => e.Id == vm.Id && e.ShoppingListId == vm.ShoppingListId);
+
+                entity.Id = vm.Id;
+                entity.ShoppingListId = vm.ShoppingListId;
+                entity.Contents = vm.Contents;
+                entity.IsChecked = vm.IsChecked;
+                entity.Priority = (ShoppingListItem.PriorityMessage)vm.Priority;
+                entity.ModifiedUTC = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
             }

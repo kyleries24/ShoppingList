@@ -105,5 +105,22 @@ namespace ShoppingListApp.Services
             }
         }
 
+        public bool UpdateList(ShoppingListEditModel vm)
+        {
+            using (var ctx = new ShoppingListDbContext())
+            {
+                var entity =
+                    ctx
+                        .ShoppingList
+                        .SingleOrDefault(e => e.UserId == _userId && e.Id == vm.Id);
+
+                entity.Color = vm.Color;
+                entity.Name = vm.Name;
+                entity.ModifiedUTC = DateTimeOffset.UtcNow;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
     }
 }

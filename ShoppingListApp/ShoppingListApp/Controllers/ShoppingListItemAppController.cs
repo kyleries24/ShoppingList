@@ -91,5 +91,36 @@ namespace ShoppingList.Web.Controllers
 
             return RedirectToAction("Index","ShoppingListApp");
         }
+
+        public ActionResult Edit(int Id, int ShoppingListId)
+        {
+            var detail = _svc.Value.GetItemById(Id, ShoppingListId);
+            var list =
+                new ShoppingListItemEditModel
+                {
+                    Id = detail.Id,
+                    ShoppingListId = detail.ShoppingListId,
+                    Contents = detail.Contents,
+                    IsChecked = detail.IsChecked,
+                    Priority = (ShoppingListItemEditModel.PriorityMessage)detail.Priority
+                };
+
+            return View(list);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(ShoppingListItemEditModel vm)
+        {
+            if (!ModelState.IsValid) return View(vm);
+
+            if (!_svc.Value.UpdateItem(vm))
+            {
+                ModelState.AddModelError("", "Unable to update list");
+                return View(vm);
+            }
+
+            return RedirectToAction("Index", new { Id = vm.ShoppingListId });
+        }
     }
 }

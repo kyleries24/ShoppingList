@@ -70,10 +70,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShoppingListCreateModel.cs" />
-    <Compile Include="ShoppingListItemCreateModel.cs" />
-    <Compile Include="ShoppingListItemModel.cs" />
-    <Compile Include="ShoppingListModel.cs" />
+    <Compile Include="ShoppingListItem\ShoppingListItemCreateModel.cs" />
+    <Compile Include="ShoppingListItem\ShoppingListItemEditModel.cs" />
+    <Compile Include="ShoppingListItem\ShoppingListItemModel.cs" />
+    <Compile Include="ShoppingList\ShoppingListCreateModel.cs" />
+    <Compile Include="ShoppingList\ShoppingListEditModel.cs" />
+    <Compile Include="ShoppingList\ShoppingListModel.cs" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -249,6 +249,7 @@
     <Content Include="Views\ShoppingListItemApp\Delete.cshtml" />
     <Content Include="Views\ShoppingListApp\Delete.cshtml" />
     <Content Include="Views\ShoppingListItemApp\Edit.cshtml" />
+    <Content Include="Views\ShoppingListApp\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
