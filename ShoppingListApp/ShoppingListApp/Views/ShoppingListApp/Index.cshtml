@@ -20,6 +20,9 @@
         <th style="border: 1px solid black;  text-align: center;">
             @Html.DisplayNameFor(model => model.Name)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
         <th style="border: 1px solid black; text-align: center">
             Actions
         </th>
@@ -29,6 +32,9 @@
     <tr style= "border: 1px solid black;">
         <td style= "border: 1px solid black; text-align: center;">
             @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
         </td>
         <td style="border: 1px solid black;  text-align: center">
             <button type="button">@Html.ActionLink("Show", "Index", "ShoppingListItemApp", new { id = item.Id }, null)</button> |
