@@ -14,6 +14,7 @@ namespace ShoppingListApp.Models
 
         public string Name { get; set; }
 
+        [Required]
         [RegularExpression("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$", ErrorMessage = "Can only input color codes")]
         public string Color { get; set; }
     }

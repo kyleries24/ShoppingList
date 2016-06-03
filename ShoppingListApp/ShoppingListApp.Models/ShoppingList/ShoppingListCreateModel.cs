@@ -17,5 +17,9 @@ namespace ShoppingListApp.Models
         [RegularExpression("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$", ErrorMessage = "Can only input color codes")]
         [MinLength(7, ErrorMessage = "Please enter one # symbol followed by your hexadecimal color code.")]
         public string Color { get; set; }
+
+        public DateTimeOffset ModifiedUTC { get; set; }
+
+        public DateTimeOffset? CreatedUTC { get; set; }
     }
 }

@@ -31,7 +31,9 @@ namespace ShoppingListApp.Services
                             {
                                 Id = e.Id,
                                 Name = e.Name,
-                                Color = e.Color
+                                Color = e.Color,
+                                CreatedUTC = e.CreatedUTC,
+                                ModifiedUTC = e.ModifiedUTC
                             })
                         .ToArray();
             }
@@ -44,16 +46,20 @@ namespace ShoppingListApp.Services
                 entity =
                     ctx
                         .ShoppingList
-                        .SingleOrDefault(e => e.UserId == _userId && e.Id == id);    
+                        .SingleOrDefault(e => e.UserId == _userId && e.Id == id);
             }
 
             return
                 new ShoppingListModel
                 {
                     Id = entity.Id,
-                    Name = entity.Name
+                    Name = entity.Name,
+                    Color = entity.Color,
+                    CreatedUTC = entity.CreatedUTC,
+                    ModifiedUTC = entity.ModifiedUTC
                 };
         }
+
         public bool CreateList(ShoppingListCreateModel vm)
         {
             using (var ctx = new ShoppingListDbContext())
@@ -63,7 +69,9 @@ namespace ShoppingListApp.Services
                     {
                         UserId = _userId,
                         Name = vm.Name,
-                        Color = vm.Color
+                        Color = vm.Color,
+                        CreatedUTC = DateTimeOffset.UtcNow,
+                        ModifiedUTC = vm.ModifiedUTC
                     };
                 ctx.ShoppingList.Add(entity);
 
@@ -80,9 +88,9 @@ namespace ShoppingListApp.Services
                         .ShoppingList
                         .SingleOrDefault(e => e.UserId == _userId && e.Id == id);
 
-                foreach(ShoppingListItem Sli in ctx.ShoppingListItem)
+                foreach (ShoppingListItem Sli in ctx.ShoppingListItem)
                 {
-                    if(Sli.ShoppingListId == entity.Id)
+                    if (Sli.ShoppingListId == entity.Id)
                         ctx.ShoppingListItem.Remove(Sli);
                 }
 
@@ -121,6 +129,5 @@ namespace ShoppingListApp.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
     }
 }

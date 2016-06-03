@@ -18,8 +18,9 @@ namespace ShoppingListApp.Models
 
         public string Color { get; set; }
 
-        public DateTimeOffset CreatedUtc { get; set; }
+        [Display(Name = "Created")]
+        public DateTimeOffset CreatedUTC { get; set; }
 
-        public DateTimeOffset? ModifiedUtc { get; set; }
+        public DateTimeOffset? ModifiedUTC { get; set; }
     }
 }
