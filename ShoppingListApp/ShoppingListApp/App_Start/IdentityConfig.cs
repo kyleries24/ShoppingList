@@ -57,7 +57,7 @@ namespace ShoppingListApp
                 RequireNonLetterOrDigit = false,
                 RequireDigit = false,
                 RequireLowercase = false,
-                RequireUppercase = false,
+                RequireUppercase = true,
             };
 
             // Configure user lockout defaults
