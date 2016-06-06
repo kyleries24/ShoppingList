@@ -21,6 +21,7 @@ namespace ShoppingList.Web.Controllers
                     });
         }
 
+        [HttpGet]
         public ActionResult Index(int id)
         {
             var ShoppingListItems = _svc.Value.GetItems(id);
@@ -82,7 +83,7 @@ namespace ShoppingList.Web.Controllers
         {
             _svc.Value.DeleteItem(Id, ShoppingListId);
 
-            return RedirectToAction("Index", new { Id = Url.RequestContext.RouteData.Values["id"] });
+            return RedirectToAction("Index/" + ShoppingListId );
         }
 
         public ActionResult DeleteAll()
