@@ -38,6 +38,26 @@ namespace ShoppingListApp.Services
                         .ToArray();
             }
         }
+
+        public bool CreateList(ShoppingListCreateModel vm)
+        {
+            using (var ctx = new ShoppingListDbContext())
+            {
+                var entity =
+                    new ShoppingList
+                    {
+                        UserId = _userId,
+                        Name = vm.Name,
+                        Color = vm.Color,
+                        CreatedUTC = DateTimeOffset.UtcNow,
+                        ModifiedUTC = vm.ModifiedUTC
+                    };
+                ctx.ShoppingList.Add(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
         public ShoppingListModel GetListById(int id)
         {
             ShoppingList entity;
@@ -58,25 +78,6 @@ namespace ShoppingListApp.Services
                     CreatedUTC = entity.CreatedUTC,
                     ModifiedUTC = entity.ModifiedUTC
                 };
-        }
-
-        public bool CreateList(ShoppingListCreateModel vm)
-        {
-            using (var ctx = new ShoppingListDbContext())
-            {
-                var entity =
-                    new ShoppingList
-                    {
-                        UserId = _userId,
-                        Name = vm.Name,
-                        Color = vm.Color,
-                        CreatedUTC = DateTimeOffset.UtcNow,
-                        ModifiedUTC = vm.ModifiedUTC
-                    };
-                ctx.ShoppingList.Add(entity);
-
-                return ctx.SaveChanges() == 1;
-            }
         }
 
         public bool DeleteList(int id)

@@ -12,6 +12,7 @@ namespace ShoppingListApp.Models
 
         public int ShoppingListId { get; set; }
 
+        [Required]
         public string Contents { get; set; }
 
         public bool IsChecked { get; set; }
