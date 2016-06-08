@@ -29,6 +29,7 @@ namespace ShoppingList.Web.Controllers
             return View(ShoppingListItems);
         }
 
+        [HttpGet]
         public ActionResult Create()
         {
             try

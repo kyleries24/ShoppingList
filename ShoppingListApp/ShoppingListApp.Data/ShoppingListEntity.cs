@@ -7,7 +7,7 @@ using System.Web;
 
 namespace ShoppingListApp.Data
 {
-    public class Note
+    public class ShoppingListEntity
     {
         [Key]
         public int Id { get; set; }

@@ -243,16 +243,18 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\ShoppingListApp\Index.cshtml" />
     <Content Include="Views\ShoppingListApp\Create.cshtml" />
-    <Content Include="Views\ShoppingListItemApp\Index.cshtml" />
+    <Content Include="Views\ShoppingListApp\Delete.cshtml" />
+    <Content Include="Views\ShoppingListApp\Edit.cshtml" />
+    <Content Include="Views\ShoppingListApp\Index.cshtml" />
     <Content Include="Views\ShoppingListItemApp\Create.cshtml" />
     <Content Include="Views\ShoppingListItemApp\Delete.cshtml" />
-    <Content Include="Views\ShoppingListApp\Delete.cshtml" />
     <Content Include="Views\ShoppingListItemApp\Edit.cshtml" />
-    <Content Include="Views\ShoppingListApp\Edit.cshtml" />
+    <Content Include="Views\ShoppingListItemApp\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\ShoppingList\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

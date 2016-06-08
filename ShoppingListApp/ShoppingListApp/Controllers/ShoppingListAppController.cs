@@ -80,6 +80,7 @@ namespace ShoppingList.Web.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             var detail = _svc.Value.GetListById(id);
@@ -87,7 +88,8 @@ namespace ShoppingList.Web.Controllers
                 new ShoppingListEditModel
                 {
                     Id = detail.Id,
-                    Name = detail.Name
+                    Name = detail.Name,
+                    Color = detail.Color
                 };
 
             return View(list);

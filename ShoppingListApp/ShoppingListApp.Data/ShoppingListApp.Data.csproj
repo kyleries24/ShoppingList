@@ -115,7 +115,7 @@
       <DependentUpon>201605291443557_fixed enums problem.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Note.cs" />
+    <Compile Include="ShoppingListEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShoppingList.cs" />
     <Compile Include="ShoppingListItem.cs" />

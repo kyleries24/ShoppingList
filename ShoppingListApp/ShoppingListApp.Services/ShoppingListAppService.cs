@@ -49,8 +49,7 @@ namespace ShoppingListApp.Services
                         UserId = _userId,
                         Name = vm.Name,
                         Color = vm.Color,
-                        CreatedUTC = DateTimeOffset.UtcNow,
-                        ModifiedUTC = vm.ModifiedUTC
+                        CreatedUTC = DateTimeOffset.UtcNow
                     };
                 ctx.ShoppingList.Add(entity);
 
